@@ -85,6 +85,18 @@ const products = [
     }
   ];
 
+// oldal betöltődés
+const renderPage = () => {
+  const productsRender = document.querySelector(".products")
+  productsRender.innerHTML = "";
+  productsRender.innerHTML = products().join('');
+}
+document.addEventListener("DOMContentLoaded", () => {
+  renderPage();
+})
+
+
+// Szűrés
 const getMinimumInputValue = () => {
     return document.getElementById("min-price").value;
 }
