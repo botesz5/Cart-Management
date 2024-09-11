@@ -106,9 +106,7 @@ const renderPage = () => {
   productsRender.innerHTML = products().join('');
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-  renderPage();
-})
+
 
 
 // Szűrés
@@ -119,13 +117,21 @@ const getMinimumInputValue = () => {
     return document.getElementById("max-price").value;
 }
 
-const filter = () => {
-    const productions = products.filter((productions) => productions.price > getMaximumInputValue() && productions.price < getMaximumInputValue());
-    console.log(productions);
-    return productions;
+const filterOptions = () => {
+    const minPrice = getMinInputValue();
+    const maxPrice = getMaxInputValue();
+    return products.filter(product => product.price >= minPrice && product.price <= maxPrice);
 }
 
-const result = () => {
-    const productList = document.getElementById("good-product-list");
-    const list = document.createElement("li");
+const showResult = () => {
+    const filteredList = filterOptions();
+    renderPage(filteredList);
 }
+
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  renderPage(products);
+  const filterBtn = document.queryselector("filter-btn");
+  filterBtn.addEventListener("click", showResult);
+})
