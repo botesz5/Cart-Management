@@ -1,4 +1,5 @@
-const products = [
+const makeProducts = () => {
+  const products = [
     {
       id: 1,
       name: "Choco Bliss",
@@ -84,24 +85,27 @@ const products = [
       description: "Zesty orange-flavored candies that are sweet, tangy, and perfect for a citrus kick.",
     }
   ];
-
-// map
-const content = products.map(product => {
-  return `<div class="product-card">
+  // map
+const content = products.map(product =>
+  `<div class="product-card" id=${product.id}>
                     <img src="${product.picture}" alt="${product.productName}">
                     <h3>${product.productName}</h3>
                     <p>${product.description}</p>
                     <p>${product.price}</p>
                     <button class="add-to-cart-btn">Kosárba</button>
-    </div>`;
-});
+                  </div>`);
+    return content;
+}
 
-// oldal betöltődés
+const productContent = makeProducts();
+
+// render
 const renderPage = () => {
   const productsRender = document.querySelector(".products")
   productsRender.innerHTML = "";
   productsRender.innerHTML = products().join('');
 }
+
 document.addEventListener("DOMContentLoaded", () => {
   renderPage();
 })
