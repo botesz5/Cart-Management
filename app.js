@@ -85,6 +85,17 @@ const products = [
     }
   ];
 
+// map
+const content = products.map(product => {
+  return `<div class="product-card">
+                    <img src="${product.picture}" alt="${product.productName}">
+                    <h3>${product.productName}</h3>
+                    <p>${product.description}</p>
+                    <p>${product.price}</p>
+                    <button class="add-to-cart-btn">Kosárba</button>
+    </div>`;
+});
+
 // oldal betöltődés
 const renderPage = () => {
   const productsRender = document.querySelector(".products")
