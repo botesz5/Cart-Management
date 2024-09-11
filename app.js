@@ -84,3 +84,21 @@ const products = [
       description: "Zesty orange-flavored candies that are sweet, tangy, and perfect for a citrus kick.",
     }
   ];
+
+const getMinimumInputValue = () => {
+    return document.getElementById("min-price").value;
+}
+ const getMaximumInputValue = () => {
+    return document.getElementById("max-price").value;
+}
+
+const filter = () => {
+    const productions = products.filter((productions) => productions.price > getMaximumInputValue() && productions.price < getMaximumInputValue());
+    console.log(productions);
+    return productions;
+}
+
+const result = () => {
+    const productList = document.getElementById("good-product-list");
+    const list = document.createElement("li");
+}
