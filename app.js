@@ -106,9 +106,6 @@ const renderPage = () => {
   productsRender.innerHTML = products().join('');
 }
 
-
-
-
 // Szűrés
 const getMinimumInputValue = () => {
     const value = parseFloat(document.querySelector("#min-price").value);
@@ -130,8 +127,6 @@ const showResult = () => {
     const filteredList = filterOptions();
     renderPage(filteredList);
 }
-
-
 
 document.addEventListener("DOMContentLoaded", () => {
   renderPage(products);
