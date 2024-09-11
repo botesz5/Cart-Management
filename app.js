@@ -111,10 +111,13 @@ const renderPage = () => {
 
 // Szűrés
 const getMinimumInputValue = () => {
-    return document.getElementById("min-price").value;
+    const value = parseFloat(document.querySelector("#min-price").value);
+    return isNaN(value) ? 0 : value;
 }
- const getMaximumInputValue = () => {
-    return document.getElementById("max-price").value;
+
+const getMaximumInputValue = () => {
+  const value = parseFloat(document.querySelector("#min-price").value);
+  return isNaN(value) ? 0 : value;
 }
 
 const filterOptions = () => {
